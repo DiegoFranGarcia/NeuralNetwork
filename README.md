@@ -1,0 +1,1 @@
+In this project I decided to create my first neural network from scratch using Pytorch. 
