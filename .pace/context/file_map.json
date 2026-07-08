@@ -2,16 +2,18 @@
   "version": 1,
   "language": "python",
   "entry_points": {
-    "docs": "README.md"
+    "train_cli": "src/train.py",
+    "evaluate_cli": "src/evaluate.py",
+    "predict_cli": "src/predict.py"
   },
   "modules": [
     {
       "dir": ".",
-      "purpose": "Repository root documentation",
+      "purpose": "Repository root docs and metadata",
       "files": [
         {
           "path": "README.md",
-          "purpose": "Project overview, setup, and usage commands",
+          "purpose": "Project overview, setup, and CLI usage",
           "key_symbols": []
         }
       ]
