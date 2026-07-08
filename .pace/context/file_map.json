@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "language": "python",
+  "entry_points": {
+    "docs": "README.md"
+  },
+  "modules": [
+    {
+      "dir": ".",
+      "purpose": "Repository root documentation",
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "Project overview, setup, and usage commands",
+          "key_symbols": []
+        }
+      ]
+    }
+  ]
+}
