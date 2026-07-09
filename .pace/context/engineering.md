@@ -3,49 +3,47 @@ language: python
 package_manager: pip
 test_runner: pytest
 test_command: "pytest tests/"
-test_file_pattern: "tests/**/*.py"
+test_file_pattern: "tests/test_*.py"
 require_tests: true
 ---
 
 ## Module Map
 | Directory | Language | Purpose | Evidence |
 |---|---|---|---|
-| . | Markdown | Project overview and usage docs | README.md |
-| .pace/context | Markdown | Generated PACE context artifacts | .pace/context/* |
+| / | Markdown | Project overview + usage | README.md |
+| .pace/context | Markdown | PACE context outputs | .pace/context/*.md |
 
 ## Tech Stack
-| Category | Technology | Evidence |
+| Component | Technology | Evidence |
 |---|---|---|
 | Language | Python 3.11 | README.md |
 | ML Framework | PyTorch 2.x | README.md |
-| ML Utils | torchvision | README.md |
-| Numeric | NumPy | README.md |
+| Vision Utils | torchvision | README.md |
+| Numerical | NumPy | README.md |
 | Visualization | Matplotlib | README.md |
 | Imaging | Pillow | README.md |
 
 ## System Architecture
-| Component | Role | Inputs | Outputs | Evidence |
-|---|---|---|---|---|
-| Training pipeline | Train CNN from scratch | Kaggle Dogs vs Cats dataset | Model checkpoints | README.md |
-| Evaluation pipeline | Compute metrics + confusion matrix | Validation set, checkpoint | Accuracy/precision/recall/F1 | README.md |
-| Inference script | Classify single image | Image + checkpoint | Predicted class + confidence | README.md |
-| CNN model | 3 conv blocks + 2 FC layers + sigmoid | 224x224 image | Binary prediction | README.md |
+| Component | Role | Interaction | Evidence |
+|---|---|---|---|
+| Training pipeline | Train CNN + save checkpoints | Uses data/train + data/val directories | README.md |
+| Evaluation pipeline | Compute metrics + confusion matrix | Loads checkpoint | README.md |
+| Inference pipeline | Predict single image class | Requires image path + checkpoint | README.md |
 
 ## Key Interfaces & Contracts
-| Interface | Parameters | Expected Behavior | Evidence |
+| Interface | Inputs | Outputs | Evidence |
 |---|---|---|---|
-| train.py CLI | --epochs, --batch-size, --lr, --checkpoint | Train model, save checkpoints | README.md |
-| evaluate.py CLI | --checkpoint | Evaluate on validation set | README.md |
-| predict.py CLI | --image, --checkpoint | Return predicted class + confidence | README.md |
+| CLI: train.py | --epochs, --batch-size, --lr, --checkpoint | Checkpoint files | README.md |
+| CLI: evaluate.py | --checkpoint | Accuracy/precision/recall/F1 + confusion matrix | README.md |
+| CLI: predict.py | --image, --checkpoint | Predicted class + confidence | README.md |
 
 ## Coding Conventions
-| Convention | Source | Notes |
-|---|---|---|
-| Not documented | README.md | No naming/style rules listed |
+Naming: Not specified in repository files  
+Error handling: Not specified in repository files  
+Formatting: Not specified in repository files
 
 ## Test Patterns
-| Aspect | Details | Evidence |
+| Pattern | Details | Evidence |
 |---|---|---|
-| Runner | pytest | README.md |
-| Command | pytest tests/ | README.md |
-| Location | tests/ directory | README.md |
+| Runner | pytest via "pytest tests/" | README.md |
+| Location | tests/test_model.py | README.md |
