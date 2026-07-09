@@ -1,8 +1,8 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Training/validation images | data/ directory | Not specified in README.md |
-| Model checkpoints | checkpoints/ path (CLI arg) | Not specified in README.md |
+| Training/validation images | data/train, data/val | Not specified in repository files |
+| Model checkpoints | checkpoints/ (implied) | Not specified in repository files |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
@@ -10,11 +10,11 @@
 | User CLI | train.py/evaluate.py/predict.py | None (local execution) |
 
 ## Security Requirements
-- Do not store credentials in repo (not specified in README.md)
-- Validate CLI file paths exist before use (not specified in README.md)
+- Do not run untrusted datasets without validation
+- Store checkpoints securely if used outside local environment
 
 ## Security Checklist
-Secrets scanning: fail (no evidence)
-Dependency pinning: fail (requirements.txt not found)
-Input validation documented: fail
-Access control documented: fail
+Dataset license reviewed: fail
+Dependency vulnerability scan configured: fail
+Secrets management documented: fail
+Input validation for inference image: fail
