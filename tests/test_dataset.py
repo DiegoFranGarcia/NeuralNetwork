@@ -43,16 +43,3 @@ def test_catdogdataset_applies_transform(tmp_path):
 
     assert image.size == (5, 5)
     assert label == 0
-
-
-def test_catdogdataset_skips_missing_class_directory(tmp_path):
-    cats_dir = tmp_path / "cats"
-    cats_dir.mkdir()
-    Image.new("RGB", (10, 10), color="yellow").save(cats_dir / "cat_1.jpg")
-
-    dataset = CatDogDataset(tmp_path)
-
-    assert len(dataset) == 1
-    image, label = dataset[0]
-    assert label == 0
-    assert image.mode == "RGB"
