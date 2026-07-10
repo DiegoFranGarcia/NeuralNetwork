@@ -2,50 +2,44 @@
   "version": 1,
   "language": "python",
   "entry_points": {
-    "train": "src/train.py",
-    "evaluate": "src/evaluate.py",
-    "predict": "src/predict.py"
+    "model": "src/model.py"
   },
   "modules": [
     {
       "dir": ".",
-      "purpose": "Project root metadata",
+      "purpose": "Repository documentation and agent guidance",
       "files": [
         {
           "path": "README.md",
-          "purpose": "Project overview, setup, and usage",
+          "purpose": "Project overview, setup, training/eval/inference usage",
+          "key_symbols": []
+        },
+        {
+          "path": "AGENTS.md",
+          "purpose": "Contributor constraints and conventions",
           "key_symbols": []
         }
       ]
     },
     {
-      "dir": ".pace/context",
-      "purpose": "PACE generated context docs",
+      "dir": "src",
+      "purpose": "Neural network model definition",
       "files": [
         {
-          "path": ".pace/context/engineering.md",
-          "purpose": "Engineering context",
-          "key_symbols": []
-        },
+          "path": "src/model.py",
+          "purpose": "Cat vs dog CNN architecture",
+          "key_symbols": ["CatDogCNN", "forward"]
+        }
+      ]
+    },
+    {
+      "dir": "tests",
+      "purpose": "Pytest coverage for model behavior",
+      "files": [
         {
-          "path": ".pace/context/product.md",
-          "purpose": "Product context",
-          "key_symbols": []
-        },
-        {
-          "path": ".pace/context/security.md",
-          "purpose": "Security context",
-          "key_symbols": []
-        },
-        {
-          "path": ".pace/context/devops.md",
-          "purpose": "DevOps context",
-          "key_symbols": []
-        },
-        {
-          "path": ".pace/context/file_map.json",
-          "purpose": "File map",
-          "key_symbols": []
+          "path": "tests/test_model.py",
+          "purpose": "Unit tests for layer composition and forward output shape",
+          "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
         }
       ]
     }
