@@ -1,31 +1,31 @@
 ## Tech Stack
 - Python 3.11
 - PyTorch 2.x
-- torchvision, Pillow
+- torchvision
+- Pillow
 - NumPy
 - Matplotlib
 - pytest
 
 ## Project Structure
-- src/ — CNN model definition code
-- src/model.py — `CatDogCNN` architecture and `forward` contract
-- tests/ — pytest suite
-- tests/test_model.py — layer type and output shape assertions
-- data/train, data/val — expected dataset layout (not managed in code)
-- checkpoints/ — implied model checkpoint storage
+- src/model.py — CatDogCNN definition consumed by tests
+- tests/ — pytest checks for layer types and output shape
+- README.md — usage/training/inference docs
+- data/train, data/val — expected dataset layout
+- checkpoints/ — implied model checkpoint location
 
 ## How to Run Tests
-`pytest tests/`
+pytest tests/
 
 ## Conventions
-- Use PyTorch/torchvision for model and data handling; no new ML frameworks.
-- Keep CLI interfaces and argument/output behavior stable if present.
-- Maintain the `CatDogCNN` input/output contract: [N,3,224,224] → [N,1] with sigmoid.
-- Add/maintain pytest tests for any new behavior or changes.
-- Assume dataset layout `data/train` and `data/val`.
+- Use only PyTorch/torchvision for ML (no new frameworks).
+- Preserve CatDogCNN input/output contract: [N,3,224,224] → [N,1] with sigmoid.
+- Keep model architecture (3 conv blocks, 2 FC layers) unless explicitly requested.
+- Keep any existing CLI interfaces and documented commands stable.
+- Add/adjust tests for model changes.
 
 ## What NOT to Do
-- Do not introduce TensorFlow or other ML frameworks.
-- Do not change checkpoint formats/paths without updating docs/tests.
-- Do not modify CLI args/outputs in a breaking way.
-- Do not add dataset download/management code or multi-class features.
+- Do not change the tensor input/output shapes or remove sigmoid output.
+- Do not introduce dataset download/management code.
+- Do not add multi-class classification behavior.
+- Do not change checkpoint formats/paths or data directory layout.
