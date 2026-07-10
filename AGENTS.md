@@ -1,32 +1,31 @@
 ## Tech Stack
 - Python 3.11
 - PyTorch 2.x
-- torchvision
+- torchvision, Pillow
 - NumPy
 - Matplotlib
-- Pillow
+- pytest
 
 ## Project Structure
-- README.md — overview, usage, and CLI examples
-- src/train.py — training pipeline CLI
-- src/evaluate.py — evaluation CLI with metrics/confusion matrix
-- src/predict.py — single-image inference CLI
-- tests/test_model.py — pytest coverage for model behavior
-- data/train, data/val — training/validation images (not in repo)
-- checkpoints/ — saved model weights (implied)
+- src/ — CNN model definition code
+- src/model.py — `CatDogCNN` architecture and `forward` contract
+- tests/ — pytest suite
+- tests/test_model.py — layer type and output shape assertions
+- data/train, data/val — expected dataset layout (not managed in code)
+- checkpoints/ — implied model checkpoint storage
 
 ## How to Run Tests
-pytest tests/
+`pytest tests/`
 
 ## Conventions
-- Keep CLI interfaces stable (`train.py`, `evaluate.py`, `predict.py` args/outputs).
-- Assume dataset layout is `data/train` and `data/val`.
-- Use PyTorch/torchvision for model and data handling.
-- Add/maintain pytest tests for new behavior.
+- Use PyTorch/torchvision for model and data handling; no new ML frameworks.
+- Keep CLI interfaces and argument/output behavior stable if present.
+- Maintain the `CatDogCNN` input/output contract: [N,3,224,224] → [N,1] with sigmoid.
+- Add/maintain pytest tests for any new behavior or changes.
+- Assume dataset layout `data/train` and `data/val`.
 
 ## What NOT to Do
-- Don’t add multi-class classification or API/web deployment.
-- Don’t auto-download or manage datasets in code.
-- Don’t introduce new ML frameworks (e.g., TensorFlow).
-- Don’t run on untrusted datasets without validation.
-- Don’t change checkpoint format/paths without updating docs and tests.
+- Do not introduce TensorFlow or other ML frameworks.
+- Do not change checkpoint formats/paths without updating docs/tests.
+- Do not modify CLI args/outputs in a breaking way.
+- Do not add dataset download/management code or multi-class features.
