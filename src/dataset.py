@@ -13,6 +13,9 @@ class CatDogDataset(Dataset):
 
         for class_name in ["cats", "dogs"]:
             class_dir = self.root_dir / class_name
+            if not class_dir.exists():
+                continue
+
             for file_path in sorted(class_dir.iterdir()):
                 if file_path.is_file() and file_path.suffix.lower() in {
                     ".jpg",
