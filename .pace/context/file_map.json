@@ -6,40 +6,40 @@
   },
   "modules": [
     {
-      "dir": ".",
-      "purpose": "Repository documentation and agent guidance",
-      "files": [
-        {
-          "path": "README.md",
-          "purpose": "Project overview, setup, training/eval/inference usage",
-          "key_symbols": []
-        },
-        {
-          "path": "AGENTS.md",
-          "purpose": "Contributor constraints and conventions",
-          "key_symbols": []
-        }
-      ]
-    },
-    {
       "dir": "src",
-      "purpose": "Neural network model definition",
+      "purpose": "CNN model implementation",
       "files": [
         {
           "path": "src/model.py",
-          "purpose": "Cat vs dog CNN architecture",
+          "purpose": "Defines CatDogCNN architecture and forward pass",
           "key_symbols": ["CatDogCNN", "forward"]
         }
       ]
     },
     {
       "dir": "tests",
-      "purpose": "Pytest coverage for model behavior",
+      "purpose": "Pytest suite for model validation",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Unit tests for layer composition and forward output shape",
+          "purpose": "Tests layer composition and output shape of CatDogCNN",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
+        }
+      ]
+    },
+    {
+      "dir": ".",
+      "purpose": "Project documentation and agent rules",
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "Project overview, setup, dataset, training/eval/inference commands",
+          "key_symbols": []
+        },
+        {
+          "path": "AGENTS.md",
+          "purpose": "Agent constraints and conventions",
+          "key_symbols": []
         }
       ]
     }
