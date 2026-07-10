@@ -1,20 +1,20 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Training/validation images | data/train, data/val | Not specified in repository files |
-| Model checkpoints | checkpoints/ (implied) | Not specified in repository files |
+| Model checkpoints | checkpoints/ (implied) | Not specified in repo |
+| Training/validation images | data/train, data/val (implied) | Not specified in repo |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| User CLI | train.py/evaluate.py/predict.py | None (local execution) |
+| Local user | CLI scripts (train/evaluate/predict) | OS user permissions (implied) |
 
 ## Security Requirements
-- Do not run untrusted datasets without validation
-- Store checkpoints securely if used outside local environment
+- Do not run on untrusted datasets without validation (AGENTS.md)
+- Avoid adding new frameworks or data pipelines without review (AGENTS.md constraints)
 
 ## Security Checklist
-Dataset license reviewed: fail
-Dependency vulnerability scan configured: fail
-Secrets management documented: fail
-Input validation for inference image: fail
+Dataset validation documented: fail
+Checkpoint integrity verification: fail
+Access control for data directories: fail
+Dependency pinning in requirements.txt: fail
