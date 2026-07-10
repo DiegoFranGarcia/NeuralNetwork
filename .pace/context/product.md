@@ -1,26 +1,27 @@
 ## Vision
-Purpose: Classify images as cat or dog using a custom CNN trained on Kaggle Dogs vs Cats.
-Users: ML learners and developers needing a simple binary image classifier.
+Purpose: Classify images as cat or dog with a PyTorch CNN
+Users: Developers or researchers training/inferencing a binary pet classifier
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| ML Student | Needs clear CNN example | Train/evaluate a binary classifier |
-| ML Engineer | Wants simple inference CLI | Predict cat vs dog on new images |
+| ML practitioner | Needs a simple CNN baseline for cats vs dogs | Train and evaluate a binary classifier |
+| Student/learner | Wants a reference CNN architecture | Study model structure and test coverage |
 
 ## MVP Scope
 In Scope:
-- CNN architecture for binary classification
-- Training/evaluation/inference scripts (per README)
-- Dataset layout: data/train and data/val
+- CatDogCNN model definition (3 conv blocks, 2 FC layers)
+- Pytest validation of layers and output shape
+- Documented training/evaluation/inference commands (README)
+
 Out of Scope:
+- Dataset download/management code
 - Multi-class classification
-- Dataset download/management in code
-- Web/API deployment
+- Changing checkpoint formats/paths
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| No new ML frameworks | AGENTS.md: avoid TensorFlow, keep PyTorch |
-| Keep CLI args/outputs stable | AGENTS.md |
-| Do not alter checkpoint format/paths without docs/tests | AGENTS.md |
+| Use PyTorch/torchvision only | AGENTS.md convention |
+| Maintain input/output contract [N,3,224,224]→[N,1] | AGENTS.md requirement |
+| Assume dataset layout data/train and data/val | AGENTS.md/README expectation |
