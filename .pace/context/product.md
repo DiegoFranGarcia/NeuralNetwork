@@ -1,25 +1,26 @@
 ## Vision
-Purpose: Classify images as cat vs dog using a CNN trained on Kaggle Dogs vs Cats dataset
-Users: ML practitioners or learners training/evaluating/inferencing on image data
+Purpose: Classify images as cat or dog using a custom CNN trained on Kaggle Dogs vs Cats.
+Users: ML learners and developers needing a simple binary image classifier.
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| ML learner | Needs a complete CNN training/evaluation example | Train a binary image classifier end-to-end |
-| Practitioner | Needs quick inference on new images | Predict cat/dog label with confidence |
+| ML Student | Needs clear CNN example | Train/evaluate a binary classifier |
+| ML Engineer | Wants simple inference CLI | Predict cat vs dog on new images |
 
 ## MVP Scope
 In Scope:
-- Train CNN from scratch with configurable epochs/batch size/lr
-- Evaluate model with accuracy, precision, recall, F1, confusion matrix
-- Single-image inference with checkpoint
-
+- CNN architecture for binary classification
+- Training/evaluation/inference scripts (per README)
+- Dataset layout: data/train and data/val
 Out of Scope:
 - Multi-class classification
-- Deployment as API or web app
-- Automated dataset download/management
+- Dataset download/management in code
+- Web/API deployment
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| Dataset: Kaggle Dogs vs Cats | Project is built around this dataset |
+| No new ML frameworks | AGENTS.md: avoid TensorFlow, keep PyTorch |
+| Keep CLI args/outputs stable | AGENTS.md |
+| Do not alter checkpoint format/paths without docs/tests | AGENTS.md |
