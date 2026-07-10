@@ -1,15 +1,15 @@
 ## CI/CD
 | Trigger | Workflow | Jobs |
 |---|---|---|
-| Not found | .github/workflows/* | None |
+| None found | None | None |
 
 ## Environment Variables
 | Name | Required | Purpose |
 |---|---|---|
-| None found | No | N/A |
+| None found | No | None documented |
 
 ## Local Dev
-1. pip install -r requirements.txt (per README; file not present in repo)
+1. pip install -r requirements.txt
 2. pytest tests/
 
 ## Deployment
