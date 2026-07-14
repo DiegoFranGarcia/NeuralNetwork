@@ -1,16 +1,16 @@
 ## CI/CD
 | Trigger | Workflow | Jobs |
 |---|---|---|
-| None | .github/ empty | None |
+| None | None | None |
 
 ## Environment Variables
 | Name | Required | Purpose |
 |---|---|---|
-| None | No | No env vars documented |
+| None | No | N/A |
 
 ## Local Dev
-1. pip install -r requirements.txt (README)
-2. pytest tests/ (README)
+1. pip install -r requirements.txt
+2. pytest tests/
 
 ## Deployment
-Deploy: Not specified; local scripts only
+Deploy: None
