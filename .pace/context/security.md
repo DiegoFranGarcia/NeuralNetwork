@@ -1,18 +1,19 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Image dataset (cats/dogs) | data/train, data/val (expected layout) | Not specified |
-| Model checkpoints | checkpoints/ (implied) | Not specified |
+| Not specified | Not specified | Not specified |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| User running scripts | Python modules (src/model.py) | None |
+| Not specified | Not specified | Not specified |
 
 ## Security Requirements
-- No explicit security requirements documented
+- Do not change input/output tensor shapes or sigmoid output (AGENTS.md)
+- Do not add dataset download/management code (AGENTS.md)
 
 ## Security Checklist
-Dependency pinning file present: fail (requirements.txt not found)
-Auth required for local scripts: fail (none specified)
-Sensitive data handling documented: fail (not specified)
+- Access control defined: FAIL
+- Secrets management documented: FAIL
+- Data retention policy documented: FAIL
+- Dependency vulnerability scanning configured: FAIL
