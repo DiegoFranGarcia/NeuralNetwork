@@ -1,27 +1,25 @@
 ## Vision
-Purpose: Classify images as cat or dog with a PyTorch CNN
-Users: Developers or researchers training/inferencing a binary pet classifier
+Purpose: Classify images as cat or dog using a CNN trained from scratch
+Users: ML learners and developers needing a basic binary image classifier
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| ML practitioner | Needs a simple CNN baseline for cats vs dogs | Train and evaluate a binary classifier |
-| Student/learner | Wants a reference CNN architecture | Study model structure and test coverage |
+| ML Student | Needs a simple CNN example with training/eval/inference | Learn end-to-end image classification |
+| Developer | Wants a baseline cat vs dog classifier | Run training and inference quickly |
 
 ## MVP Scope
 In Scope:
-- CatDogCNN model definition (3 conv blocks, 2 FC layers)
-- Pytest validation of layers and output shape
-- Documented training/evaluation/inference commands (README)
-
+- CNN model definition for binary classification
+- Training, evaluation, and single-image inference scripts
+- Pytest checks for model layers and output shape
 Out of Scope:
-- Dataset download/management code
+- Dataset download/management automation
 - Multi-class classification
-- Changing checkpoint formats/paths
+- Web/UI for inference
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| Use PyTorch/torchvision only | AGENTS.md convention |
-| Maintain input/output contract [N,3,224,224]→[N,1] | AGENTS.md requirement |
-| Assume dataset layout data/train and data/val | AGENTS.md/README expectation |
+| Input/Output contract [N,3,224,224] 0 [N,1] with sigmoid | AGENTS.md + tests enforce model behavior |
+| Use only PyTorch/torchvision for ML | AGENTS.md constraint |
