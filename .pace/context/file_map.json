@@ -1,1 +1,47 @@
-{"version":1,"language":"python","entry_points":{"model":"src/model.py","tests":"tests/test_model.py"},"modules":[{"dir":"src","purpose":"Model architecture for cat vs dog classifier","files":[{"path":"src/model.py","purpose":"Defines CatDogCNN CNN architecture with conv blocks and classifier","key_symbols":["CatDogCNN","forward"]}]},{"dir":"tests","purpose":"Pytest validation for model structure and output","files":[{"path":"tests/test_model.py","purpose":"Asserts layer types and forward output shape for CatDogCNN","key_symbols":["test_catdogcnn_has_expected_layers","test_catdogcnn_forward_returns_predictions"]}]}]}
+{
+  "version": 1,
+  "language": "python",
+  "entry_points": {
+    "model": "src/model.py"
+  },
+  "modules": [
+    {
+      "dir": "src",
+      "purpose": "CNN model implementation",
+      "files": [
+        {
+          "path": "src/model.py",
+          "purpose": "Defines CatDogCNN architecture and forward pass",
+          "key_symbols": ["CatDogCNN", "forward"]
+        }
+      ]
+    },
+    {
+      "dir": "tests",
+      "purpose": "Pytest suite for model structure and outputs",
+      "files": [
+        {
+          "path": "tests/test_model.py",
+          "purpose": "Validates layer ordering and output shape of CatDogCNN",
+          "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
+        }
+      ]
+    },
+    {
+      "dir": ".",
+      "purpose": "Repository documentation and metadata",
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "Project overview, setup, and usage instructions",
+          "key_symbols": []
+        },
+        {
+          "path": "AGENTS.md",
+          "purpose": "Development constraints and conventions",
+          "key_symbols": []
+        }
+      ]
+    }
+  ]
+}
