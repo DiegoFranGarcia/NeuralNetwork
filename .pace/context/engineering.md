@@ -9,9 +9,9 @@ require_tests: true
 ## Module Map
 | Directory | Language | Purpose |
 |---|---|---|
-| src | Python | CNN model implementation |
-| tests | Python | Pytest checks for model layers/output |
-| .pace/context | Markdown/JSON | Generated PACE context artifacts |
+| src/ | Python | CNN model definition (CatDogCNN) |
+| tests/ | Python | Pytest checks for layer order and output shape |
+| .pace/context/ | N/A | Generated context artifacts (do not edit) |
 
 ## Tech Stack
 | Component | Technology |
@@ -19,29 +19,28 @@ require_tests: true
 | Language | Python 3.11 |
 | ML Framework | PyTorch 2.x |
 | Testing | pytest |
-| Libraries | torchvision, Pillow, NumPy, Matplotlib |
+| Imaging/Utils | torchvision, Pillow, NumPy, Matplotlib (README) |
 
 ## System Architecture
-| Component | Interactions |
-|---|---|
-| CatDogCNN | Consumes image tensors [N,3,224,224] and outputs sigmoid predictions [N,1] |
-| Tests | Instantiate CatDogCNN and validate layer types/output shape |
+| Component | Interacts With | Notes |
+|---|---|---|
+| src/model.py:CatDogCNN | tests/test_model.py | Tests instantiate model and validate layers/output |
 
 ## Key Interfaces & Contracts
-| Interface | Contract |
-|---|---|
-| CatDogCNN.forward | Input: torch.Tensor [N,3,224,224] → Output: torch.Tensor [N,1] sigmoid |
-| Architecture | 3 conv blocks + 2 fully connected layers |
+| Interface | Signature | Contract |
+|---|---|---|
+| CatDogCNN.__init__ | () -> None | 3 conv blocks + 2 FC layers; layer order fixed |
+| CatDogCNN.forward | (x: torch.Tensor) -> torch.Tensor | Input [N,3,224,224] → output sigmoid [N,1] |
 
 ## Coding Conventions
-| Rule | Details |
+| Rule | Source |
 |---|---|
-| Layer ordering | Conv2d → BatchNorm2d → ReLU → MaxPool2d repeated 3x |
-| Output activation | Sigmoid applied after classifier |
-| Module naming | CatDogCNN in src/model.py |
+| Keep CatDogCNN in src/model.py with exact name | AGENTS.md |
+| Do not change input/output tensor shapes | AGENTS.md |
+| Architecture: 3 conv blocks (Conv2d→BatchNorm2d→ReLU→MaxPool2d) + 2 FC layers | AGENTS.md |
+| No external network calls or secrets | AGENTS.md |
 
 ## Test Patterns
-| Pattern | Details |
-|---|---|
-| Layer structure tests | Assert types in model.features sequence |
-| Forward tests | Validate output shape (2,1) for batch input |
+| Test File | Focus | Notes |
+|---|---|---|
+| tests/test_model.py | Layer order + forward output shape | Uses pytest and torch.randn input |
