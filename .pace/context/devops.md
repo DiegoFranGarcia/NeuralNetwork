@@ -1,12 +1,12 @@
 ## CI/CD
 | Trigger | Workflow | Jobs |
 |---|---|---|
-| None found | None | None |
+| Not specified | Not specified | Not specified |
 
 ## Environment Variables
 | Name | Required | Purpose |
 |---|---|---|
-| None found | No | None documented |
+| Not specified | No | Not specified |
 
 ## Local Dev
 1. pip install -r requirements.txt
