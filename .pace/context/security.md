@@ -1,19 +1,19 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Model weights | Not present in repo | N/A |
-| Training data | Not present in repo | N/A |
+| None specified | N/A | N/A |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| Developer | PyTorch model code | Local execution only |
+| tests/test_model.py | src/model.py:CatDogCNN | Local import (no auth) |
 
 ## Security Requirements
-- No external network calls or secrets in repository
-- Preserve model I/O shapes and architecture per conventions
+- Do not add external network calls
+- Do not add secrets to repository
+- Maintain fixed input/output tensor shapes
 
 ## Security Checklist
 No external network calls: pass
-No secrets in repo: pass
-Tests enforce architecture: pass
+No secrets added: pass
+Input/output shape contract preserved: pass
