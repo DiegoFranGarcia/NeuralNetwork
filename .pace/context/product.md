@@ -1,25 +1,27 @@
 ## Vision
-Purpose: Classify images as cat or dog using a CNN model
-Users: Not specified in repo
+Purpose: Classify cat vs dog images with a CNN trained from scratch
+Users: ML learners or practitioners evaluating binary image classification
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| Not specified | Not specified | Not specified |
+| ML student | Needs a reference CNN implementation | Train and evaluate a binary classifier |
+| Hobbyist | Wants simple inference on images | Predict cat vs dog from a single image |
 
 ## MVP Scope
 In Scope:
-- CatDogCNN model definition (src/model.py)
-- Pytest validation of layers and output shape (tests/test_model.py)
-- Project usage documentation (README.md)
+- Train CatDogCNN model on Dogs vs Cats dataset
+- Evaluate metrics and confusion matrix (README)
+- Single-image inference (README)
+
 Out of Scope:
-- Dataset download/management code (AGENTS.md)
-- Multi-class classification behavior (AGENTS.md)
-- Changes to input/output tensor shapes or sigmoid output (AGENTS.md)
+- Multi-class classification
+- Dataset download/management automation
+- Web or API deployment
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| Use only PyTorch/torchvision for ML | AGENTS.md |
-| Preserve input/output contract [N,3,224,224] -> [N,1] with sigmoid | AGENTS.md + tests |
-| Keep model architecture: 3 conv blocks, 2 FC layers | AGENTS.md |
+| Keep CatDogCNN I/O shape [N,3,224,224] -> [N,1] with sigmoid | AGENTS.md contract + tests |
+| Preserve 3 conv blocks + 2 FC layers | AGENTS.md + tests expectations |
+| Use PyTorch/torchvision only for ML | AGENTS.md constraint |
