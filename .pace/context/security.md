@@ -1,19 +1,19 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Training/validation images | data/ (README structure) | Not specified in repo |
-| Model checkpoints | checkpoints/ path (README) | Not specified in repo |
+| Model weights | Not present in repo | N/A |
+| Training data | Not present in repo | N/A |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| Local user | CLI scripts (train/evaluate/predict per README) | None (local execution) |
+| Developer | PyTorch model code | Local execution only |
 
 ## Security Requirements
-- Do not add dataset download/management code (AGENTS.md)
-- Preserve model I/O contract and architecture (AGENTS.md)
+- No external network calls or secrets in repository
+- Preserve model I/O shapes and architecture per conventions
 
 ## Security Checklist
-Dataset download automation: fail (explicitly forbidden)
-External network calls in code: fail (no files beyond model.py; unknown elsewhere)
-Secrets in repo: fail (no evidence in scanned files)
+No external network calls: pass
+No secrets in repo: pass
+Tests enforce architecture: pass
