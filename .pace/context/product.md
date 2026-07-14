@@ -1,26 +1,26 @@
 ## Vision
-Purpose: Classify images as cat vs dog with a CNN model
-Users: ML practitioners or students training a binary classifier
+Purpose: Classify images as cat vs dog using a CNN model definition
+Users: ML developers who need a reference CNN architecture and tests
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| ML Student | Needs a simple CNN example | Train and inspect a working classifier |
-| Data Scientist | Wants a baseline model | Evaluate cat vs dog classification accuracy |
+| ML Engineer | Needs a simple, test-verified CNN baseline | Reuse a fixed CatDogCNN architecture |
+| QA/Test Engineer | Needs deterministic model structure checks | Validate layer order and output shape |
 
 ## MVP Scope
 In Scope:
-- CNN architecture definition (CatDogCNN)
-- PyTorch model forward pass for binary prediction
-- Pytest model layer/output checks
+- CatDogCNN architecture in src/model.py
+- Forward pass output shape [N,1] with sigmoid
+- Pytest checks for layer order and output shape
 Out of Scope:
-- Dataset download/management automation
-- Training/evaluation/inference scripts in repo
-- Deployment or serving
+- Training, evaluation, inference scripts
+- Dataset management or downloading
+- UI or API service
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| Preserve input/output shapes | Required by tests and conventions |
-| Keep 3 conv blocks + 2 FC layers | Locked architecture contract |
-| No external network calls or secrets | Repo constraint from AGENTS.md |
+| Architecture must remain 3 conv blocks + 2 FC layers | AGENTS.md contract |
+| Keep CatDogCNN name and location | AGENTS.md contract |
+| No external network calls or secrets | AGENTS.md rule |
