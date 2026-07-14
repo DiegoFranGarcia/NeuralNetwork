@@ -1,19 +1,19 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| Not specified | Not specified | Not specified |
+| Training/validation images | data/ (README structure) | Not specified in repo |
+| Model checkpoints | checkpoints/ path (README) | Not specified in repo |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| Not specified | Not specified | Not specified |
+| Local user | CLI scripts (train/evaluate/predict per README) | None (local execution) |
 
 ## Security Requirements
-- Do not change input/output tensor shapes or sigmoid output (AGENTS.md)
 - Do not add dataset download/management code (AGENTS.md)
+- Preserve model I/O contract and architecture (AGENTS.md)
 
 ## Security Checklist
-- Access control defined: FAIL
-- Secrets management documented: FAIL
-- Data retention policy documented: FAIL
-- Dependency vulnerability scanning configured: FAIL
+Dataset download automation: fail (explicitly forbidden)
+External network calls in code: fail (no files beyond model.py; unknown elsewhere)
+Secrets in repo: fail (no evidence in scanned files)
