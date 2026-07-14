@@ -7,38 +7,38 @@
   "modules": [
     {
       "dir": "src",
-      "purpose": "CNN model implementation",
+      "purpose": "CNN model definition for cat vs dog classification",
       "files": [
         {
           "path": "src/model.py",
-          "purpose": "Defines CatDogCNN architecture and forward pass",
+          "purpose": "Defines CatDogCNN PyTorch model",
           "key_symbols": ["CatDogCNN", "forward"]
         }
       ]
     },
     {
       "dir": "tests",
-      "purpose": "Pytest suite for model validation",
+      "purpose": "Pytest checks for model layers and output shape",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Tests layer composition and output shape of CatDogCNN",
+          "purpose": "Validates CatDogCNN layer types and output shape",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
         }
       ]
     },
     {
       "dir": ".",
-      "purpose": "Project documentation and agent rules",
+      "purpose": "Project documentation and contributor constraints",
       "files": [
         {
           "path": "README.md",
-          "purpose": "Project overview, setup, dataset, training/eval/inference commands",
+          "purpose": "Project overview, setup, and usage",
           "key_symbols": []
         },
         {
           "path": "AGENTS.md",
-          "purpose": "Agent constraints and conventions",
+          "purpose": "Contributor constraints and testing guidance",
           "key_symbols": []
         }
       ]
