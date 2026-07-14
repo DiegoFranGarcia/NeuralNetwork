@@ -9,41 +9,39 @@ require_tests: true
 ## Module Map
 | Directory | Language | Purpose |
 |---|---|---|
-| src/ | Python | Model architecture (CatDogCNN) |
-| tests/ | Python | Pytest coverage for model layers and output |
-| .pace/context/ | Markdown/JSON | Existing PACE context outputs |
-| .github/ | N/A | Empty directory |
+| src | Python | CNN model implementation |
+| tests | Python | Pytest checks for model layers/output |
+| .pace/context | Markdown/JSON | Generated PACE context artifacts |
 
 ## Tech Stack
 | Component | Technology |
 |---|---|
 | Language | Python 3.11 |
 | ML Framework | PyTorch 2.x |
-| Vision Utils | torchvision, Pillow |
-| Data/Plotting | NumPy, Matplotlib |
 | Testing | pytest |
+| Libraries | torchvision, Pillow, NumPy, Matplotlib |
 
 ## System Architecture
-| Component | Interaction |
+| Component | Interactions |
 |---|---|
-| CatDogCNN (src/model.py) | Accepts [N,3,224,224] tensor → outputs [N,1] sigmoid predictions |
-| Tests (tests/test_model.py) | Instantiate CatDogCNN → validate layer types and output shape |
+| CatDogCNN | Consumes image tensors [N,3,224,224] and outputs sigmoid predictions [N,1] |
+| Tests | Instantiate CatDogCNN and validate layer types/output shape |
 
 ## Key Interfaces & Contracts
-| Interface | Definition |
+| Interface | Contract |
 |---|---|
-| Model forward | Input: torch.Tensor [N,3,224,224]; Output: torch.Tensor [N,1] with sigmoid |
-| CLI commands | pytest tests/ (documented in README/AGENTS) |
+| CatDogCNN.forward | Input: torch.Tensor [N,3,224,224] → Output: torch.Tensor [N,1] sigmoid |
+| Architecture | 3 conv blocks + 2 fully connected layers |
 
 ## Coding Conventions
-| Rule | Evidence |
+| Rule | Details |
 |---|---|
-| Preserve model I/O contract | AGENTS.md: input/output shape + sigmoid required |
-| Keep 3 conv blocks + 2 FC layers | AGENTS.md + tests/test_model.py expectations |
-| Use PyTorch for ML components | AGENTS.md constraints |
+| Layer ordering | Conv2d → BatchNorm2d → ReLU → MaxPool2d repeated 3x |
+| Output activation | Sigmoid applied after classifier |
+| Module naming | CatDogCNN in src/model.py |
 
 ## Test Patterns
-| Test File | Coverage |
+| Pattern | Details |
 |---|---|
-| tests/test_model.py | Layer type order, classifier layer types, forward output shape |
-| Test Runner | pytest tests/ |
+| Layer structure tests | Assert types in model.features sequence |
+| Forward tests | Validate output shape (2,1) for batch input |
