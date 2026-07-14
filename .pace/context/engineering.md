@@ -9,9 +9,9 @@ require_tests: true
 ## Module Map
 | Directory | Language | Purpose |
 |---|---|---|
-| src | Python | Cat vs dog CNN model definition |
-| tests | Python | Pytest assertions for model layers and output |
-| . | Markdown | Project and agent guidelines |
+| src | Python | CNN model definition for cat vs dog classification |
+| tests | Python | Pytest checks for model layers and output shape |
+| . | Markdown | Project documentation and contributor constraints |
 
 ## Tech Stack
 | Component | Technology |
@@ -25,7 +25,7 @@ require_tests: true
 ## System Architecture
 | Component | Interaction |
 |---|---|
-| src/model.py:CatDogCNN | Consumed by pytest tests for layer/shape validation |
+| src/model.py:CatDogCNN | Instantiated by tests for layer/type/shape validation |
 
 ## Key Interfaces & Contracts
 | Interface | Contract |
@@ -35,9 +35,11 @@ require_tests: true
 ## Coding Conventions
 | Convention | Source |
 |---|---|
-| Use PyTorch/torchvision only (no new ML frameworks) | AGENTS.md |
-| Maintain CatDogCNN input/output contract | AGENTS.md |
-| Keep CLI interfaces stable if present | AGENTS.md |
+| Use only PyTorch/torchvision for ML (no new frameworks) | AGENTS.md |
+| Preserve CatDogCNN input/output shape and sigmoid output | AGENTS.md |
+| Keep model architecture: 3 conv blocks, 2 FC layers | AGENTS.md |
+| Keep documented CLI commands stable if present | AGENTS.md |
+| Add/adjust tests for model changes | AGENTS.md |
 
 ## Test Patterns
 | Pattern | Details |
