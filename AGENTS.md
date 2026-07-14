@@ -6,25 +6,23 @@
 - pytest
 
 ## Project Structure
-- src/model.py — CatDogCNN model definition
-- tests/test_model.py — validates layer types and output shape
+- src/model.py — CatDogCNN architecture
+- tests/test_model.py — layer/type and output shape tests
 - tests/ — pytest suite
-- README.md — usage/docs
-- requirements.txt — Python dependencies
+- .pace/context/ — generated context artifacts
+- .github/ — empty
 
 ## How to Run Tests
 `pytest tests/`
 
 ## Conventions
-- Preserve CatDogCNN input/output contract: [N,3,224,224] -> [N,1] with sigmoid
-- Keep architecture: exactly 3 conv blocks and 2 fully connected layers
-- Use only PyTorch/torchvision for ML components
-- Update/add tests when changing model behavior
-- Keep documented commands stable
+- Preserve CatDogCNN I/O: input [N,3,224,224] → output [N,1] with sigmoid.
+- Keep exactly 3 convolutional blocks and 2 fully connected layers.
+- Use PyTorch/torchvision for ML components.
+- Ensure new code is covered by pytest in tests/.
 
 ## What NOT to Do
-- Do not change input/output tensor shapes or remove sigmoid
-- Do not add dataset download/management code
-- Do not introduce multi-class classification behavior
-- Do not replace PyTorch/torchvision with other ML frameworks
-- Do not modify tests without updating model accordingly
+- Do not add dataset download/management automation.
+- Do not change the model’s input/output shapes or remove sigmoid.
+- Do not alter the required layer ordering (3 conv blocks + 2 FC layers).
+- Do not introduce external network calls or secrets in the repo.
