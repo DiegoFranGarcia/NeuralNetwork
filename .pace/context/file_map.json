@@ -2,43 +2,44 @@
   "version": 1,
   "language": "python",
   "entry_points": {
-    "model": "src/model.py"
+    "model": "src/model.py",
+    "tests": "tests/test_model.py"
   },
   "modules": [
     {
       "dir": "src",
-      "purpose": "CNN model implementation",
+      "purpose": "CNN model definition",
       "files": [
         {
           "path": "src/model.py",
           "purpose": "Defines CatDogCNN architecture and forward pass",
-          "key_symbols": ["CatDogCNN", "forward"]
+          "key_symbols": ["CatDogCNN", "CatDogCNN.forward", "CatDogCNN.__init__"]
         }
       ]
     },
     {
       "dir": "tests",
-      "purpose": "Pytest suite for model structure and outputs",
+      "purpose": "Pytest checks for model layer order and output shape",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Validates layer ordering and output shape of CatDogCNN",
+          "purpose": "Validates CatDogCNN layers and forward output shape",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
         }
       ]
     },
     {
       "dir": ".",
-      "purpose": "Repository documentation and metadata",
+      "purpose": "Repository metadata and instructions",
       "files": [
         {
           "path": "README.md",
-          "purpose": "Project overview, setup, and usage instructions",
+          "purpose": "Project overview, setup, and usage",
           "key_symbols": []
         },
         {
           "path": "AGENTS.md",
-          "purpose": "Development constraints and conventions",
+          "purpose": "Agent rules and architecture constraints",
           "key_symbols": []
         }
       ]
