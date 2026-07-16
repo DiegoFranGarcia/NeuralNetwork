@@ -6,14 +6,13 @@
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| tests/test_model.py | src/model.py:CatDogCNN | Local import (no auth) |
+| Local user | PyTorch model code | N/A (local execution) |
 
 ## Security Requirements
-- Do not add external network calls
-- Do not add secrets to repository
-- Maintain fixed input/output tensor shapes
+- No external network calls or secrets (AGENTS.md)
+- Keep model architecture unchanged to satisfy tests
 
 ## Security Checklist
 No external network calls: pass
-No secrets added: pass
-Input/output shape contract preserved: pass
+No secrets in repo: pass (none found)
+Input tensor shape validated by tests: pass
