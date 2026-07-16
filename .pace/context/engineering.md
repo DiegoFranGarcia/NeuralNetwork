@@ -23,7 +23,7 @@ require_tests: true
 ## System Architecture
 | Component | Interaction | Details |
 |---|---|---|
-| CatDogCNN | forward(x) | Tensor input [N,3,224,224]  sigmoid output [N,1] |
+| CatDogCNN | forward(x) | Tensor input [N,3,224,224] -> sigmoid output [N,1] |
 
 ## Key Interfaces & Contracts
 | Interface | Location | Contract |
