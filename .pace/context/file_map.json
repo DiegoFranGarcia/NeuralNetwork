@@ -2,45 +2,44 @@
   "version": 1,
   "language": "python",
   "entry_points": {
-    "model": "src/model.py",
-    "tests": "tests/test_model.py"
+    "model": "src/model.py"
   },
   "modules": [
     {
+      "dir": ".",
+      "purpose": "Project documentation and metadata",
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "Project overview, setup, and usage guidance",
+          "key_symbols": []
+        },
+        {
+          "path": "AGENTS.md",
+          "purpose": "Agent instructions and constraints",
+          "key_symbols": []
+        }
+      ]
+    },
+    {
       "dir": "src",
-      "purpose": "CNN model definition",
+      "purpose": "Model architecture implementation",
       "files": [
         {
           "path": "src/model.py",
           "purpose": "Defines CatDogCNN architecture and forward pass",
-          "key_symbols": ["CatDogCNN", "CatDogCNN.forward", "CatDogCNN.__init__"]
+          "key_symbols": ["CatDogCNN", "forward"]
         }
       ]
     },
     {
       "dir": "tests",
-      "purpose": "Pytest checks for model layer order and output shape",
+      "purpose": "Pytest suite for model validation",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Validates CatDogCNN layers and forward output shape",
+          "purpose": "Asserts layer order and output shape for CatDogCNN",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
-        }
-      ]
-    },
-    {
-      "dir": ".",
-      "purpose": "Repository metadata and instructions",
-      "files": [
-        {
-          "path": "README.md",
-          "purpose": "Project overview, setup, and usage",
-          "key_symbols": []
-        },
-        {
-          "path": "AGENTS.md",
-          "purpose": "Agent rules and architecture constraints",
-          "key_symbols": []
         }
       ]
     }
