@@ -8,7 +8,7 @@
   "modules": [
     {
       "dir": "src",
-      "purpose": "Model definition for cat vs dog CNN",
+      "purpose": "CNN model implementation",
       "files": [
         {
           "path": "src/model.py",
@@ -19,27 +19,47 @@
     },
     {
       "dir": "tests",
-      "purpose": "Pytest suite validating model architecture/output",
+      "purpose": "Pytest suite for model contract",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Tests layer order and output shape of CatDogCNN",
+          "purpose": "Validates CatDogCNN layer order and output shape",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
         }
       ]
     },
     {
-      "dir": ".",
-      "purpose": "Project docs and guidance",
+      "dir": ".pace",
+      "purpose": "Agent guidance and context",
       "files": [
         {
-          "path": "README.md",
-          "purpose": "Project overview, usage, and commands",
+          "path": "AGENTS.md",
+          "purpose": "Project constraints and testing conventions",
           "key_symbols": []
         },
         {
-          "path": "AGENTS.md",
-          "purpose": "Agent constraints and conventions",
+          "path": ".pace/context/engineering.md",
+          "purpose": "Generated engineering context",
+          "key_symbols": []
+        },
+        {
+          "path": ".pace/context/product.md",
+          "purpose": "Generated product context",
+          "key_symbols": []
+        },
+        {
+          "path": ".pace/context/security.md",
+          "purpose": "Generated security context",
+          "key_symbols": []
+        },
+        {
+          "path": ".pace/context/devops.md",
+          "purpose": "Generated devops context",
+          "key_symbols": []
+        },
+        {
+          "path": ".pace/context/file_map.json",
+          "purpose": "Generated file map",
           "key_symbols": []
         }
       ]
