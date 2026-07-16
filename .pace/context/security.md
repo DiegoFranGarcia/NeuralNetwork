@@ -1,18 +1,17 @@
 ## Sensitive Data
 | Data | Where Stored | Protection |
 |---|---|---|
-| None identified in repo | N/A | N/A |
+| None detected | N/A | N/A |
 
 ## Trust Boundaries
 | Caller | Callee | Auth Method |
 |---|---|---|
-| Tests | CatDogCNN class | None (in-process) |
+| Local tests | CatDogCNN (in-process) | N/A |
 
 ## Security Requirements
-- Do not add external network calls (AGENTS.md)
-- Do not add secrets or API keys (AGENTS.md)
+- No external network calls (AGENTS.md)
+- No secrets or API keys in code or config (AGENTS.md)
 
 ## Security Checklist
 No external network calls: pass
-No secrets added: pass
-Input tensor shape enforced by tests: pass
+No secrets/API keys committed: pass
