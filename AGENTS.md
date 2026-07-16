@@ -2,26 +2,28 @@
 - Python 3.11
 - PyTorch 2.x
 - pytest
-- torchvision, Pillow, NumPy, Matplotlib (as needed)
+- torchvision, Pillow
+- NumPy, Matplotlib
 
 ## Project Structure
-- src/model.py — CatDogCNN architecture definition
-- tests/test_model.py — validates layer order and forward output shape
-- tests/ — pytest suite
-- .pace/context/ — generated artifacts (do not edit)
-- requirements.txt — dependencies
+- src/model.py — defines CatDogCNN architecture and forward pass
+- tests/test_model.py — pytest checks layer order and output shape
+- tests/ — test suite root (pytest discovery)
+- .pace/context — generated context artifacts
+- . — project documentation (e.g., README, AGENTS.md)
 
 ## How to Run Tests
 `pytest tests/`
 
 ## Conventions
-- Keep `CatDogCNN` defined in `src/model.py` with the exact class name.
-- Preserve architecture: 3 conv blocks (Conv2d→BatchNorm2d→ReLU→MaxPool2d) + 2 FC layers.
-- Maintain input/output contract: input [N,3,224,224] → sigmoid output [N,1].
-- Use pytest-style tests; keep changes compatible with `tests/test_model.py`.
+- Keep class name `CatDogCNN` in `src/model.py`.
+- Preserve 3 Conv2d→BatchNorm2d→ReLU→MaxPool2d blocks + 2 FC layers + Sigmoid.
+- `forward(x)` must accept `[N,3,224,224]` and return `[N,1]`.
+- Use PyTorch modules; keep code minimal and readable.
+- Do not add external network calls or secrets.
 
 ## What NOT to Do
-- Do not change layer order, number of blocks, or tensor shapes.
-- Do not move/rename `CatDogCNN` or `src/model.py`.
-- Do not add external network calls or secrets.
-- Do not introduce training/inference scripts or dataset logic (out of scope).
+- Don’t rename/move `CatDogCNN` or change its file location.
+- Don’t alter layer order, counts, or output tensor shape.
+- Don’t introduce training pipelines, datasets, or inference CLI.
+- Don’t add network requests, API keys, or sensitive data.
