@@ -4,23 +4,23 @@
 - pytest
 
 ## Project Structure
-- src/model.py — defines CatDogCNN architecture
-- tests/test_model.py — asserts layer order and output shape
-- tests/ — pytest suite for model contract
+- src/model.py — CatDogCNN model definition
+- tests/test_model.py — pytest structural and output-shape checks
+- tests/ — all test files (pattern: tests/**/*.py)
+- .pace/ — agent context rules
 - requirements.txt — Python dependencies
 
 ## How to Run Tests
 `pytest tests/`
 
 ## Conventions
-- Keep class name `CatDogCNN` in `src/model.py`
-- Preserve 3 Conv2d → BatchNorm2d → ReLU → MaxPool2d blocks
-- Preserve 2 fully connected layers with final Sigmoid output
-- `forward(x)` must accept `[N,3,224,224]` and return `[N,1]`
-- Use PyTorch (`torch`, `nn`) for model components
+- Keep class name exactly `CatDogCNN`.
+- Preserve layer order/counts in `features` and `classifier` as defined.
+- `forward` must accept input `[N,3,224,224]` and return `[N,1]` with sigmoid output.
+- Use PyTorch modules; keep model in `src/model.py`.
 
 ## What NOT to Do
-- Do not add external network calls
-- Do not introduce secrets or API keys
-- Do not change layer order/counts tested in `tests/test_model.py`
-- Do not expand scope (training pipeline, CLI/API, datasets)
+- Do not add external network calls.
+- Do not add secrets or API keys.
+- Do not change layer types/order/counts (tests assert exact structure).
+- Do not add training/inference pipelines or dataset downloads (out of scope).
