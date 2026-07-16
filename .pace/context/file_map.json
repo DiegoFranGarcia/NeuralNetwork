@@ -2,28 +2,13 @@
   "version": 1,
   "language": "python",
   "entry_points": {
-    "model": "src/model.py"
+    "model": "src/model.py",
+    "tests": "tests/test_model.py"
   },
   "modules": [
     {
-      "dir": ".",
-      "purpose": "Project documentation and metadata",
-      "files": [
-        {
-          "path": "README.md",
-          "purpose": "Project overview, setup, and usage guidance",
-          "key_symbols": []
-        },
-        {
-          "path": "AGENTS.md",
-          "purpose": "Agent instructions and constraints",
-          "key_symbols": []
-        }
-      ]
-    },
-    {
       "dir": "src",
-      "purpose": "Model architecture implementation",
+      "purpose": "Model definition for cat vs dog CNN",
       "files": [
         {
           "path": "src/model.py",
@@ -34,12 +19,28 @@
     },
     {
       "dir": "tests",
-      "purpose": "Pytest suite for model validation",
+      "purpose": "Pytest suite validating model architecture/output",
       "files": [
         {
           "path": "tests/test_model.py",
-          "purpose": "Asserts layer order and output shape for CatDogCNN",
+          "purpose": "Tests layer order and output shape of CatDogCNN",
           "key_symbols": ["test_catdogcnn_has_expected_layers", "test_catdogcnn_forward_returns_predictions"]
+        }
+      ]
+    },
+    {
+      "dir": ".",
+      "purpose": "Project docs and guidance",
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "Project overview, usage, and commands",
+          "key_symbols": []
+        },
+        {
+          "path": "AGENTS.md",
+          "purpose": "Agent constraints and conventions",
+          "key_symbols": []
         }
       ]
     }
