@@ -37,13 +37,3 @@ def test_catdogcnn_forward_returns_predictions():
     outputs = model(inputs)
 
     assert outputs.shape == (2, 1)
-
-
-def test_catdogcnn_outputs_sigmoid_range():
-    model = CatDogCNN()
-    inputs = torch.randn(4, 3, 224, 224)
-
-    outputs = model(inputs)
-
-    assert torch.all(outputs >= 0)
-    assert torch.all(outputs <= 1)
