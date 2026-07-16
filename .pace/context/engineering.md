@@ -3,46 +3,47 @@ language: python
 package_manager: pip
 test_runner: pytest
 test_command: "pytest tests/"
-test_file_pattern: "tests/**/*.py"
+test_file_pattern: "tests/test_*.py"
 require_tests: true
 ---
 ## Module Map
 | Directory | Language | Purpose |
 |---|---|---|
-| src | Python | CNN model architecture |
-| tests | Python | Pytest validation for model |
-| .pace/context | Markdown/JSON | Generated context artifacts |
-| . | Markdown | Project documentation |
+| src | Python | CNN model definition (CatDogCNN) |
+| tests | Python | Pytest checks for model architecture/output |
 
 ## Tech Stack
 | Component | Technology |
 |---|---|
 | Language | Python 3.11 |
 | ML Framework | PyTorch 2.x |
-| Test Runner | pytest |
-| Image Utils | torchvision, Pillow |
-| Data/Plot | NumPy, Matplotlib |
+| Testing | pytest |
 
 ## System Architecture
-| Component | Interactions |
+| Component | Interaction |
 |---|---|
-| CatDogCNN (src/model.py) | Accepts image tensors [N,3,224,224] → outputs sigmoid [N,1] |
-| Tests (tests/test_model.py) | Instantiates CatDogCNN and asserts layers/shape |
+| CatDogCNN (src/model.py) | Consumes image tensors [N,3,224,224] → outputs sigmoid scores [N,1] |
+| Tests (tests/test_model.py) | Instantiates CatDogCNN → asserts layer order and output shape |
 
 ## Key Interfaces & Contracts
-| Interface | Contract |
+| Interface | Definition |
 |---|---|
-| CatDogCNN.forward(x) | Input tensor shape [N,3,224,224] → output shape [N,1] |
-| Architecture | 3 Conv2d→BatchNorm2d→ReLU→MaxPool2d blocks + 2 FC layers + Sigmoid |
+| Class | CatDogCNN(nn.Module) |
+| Method | forward(x: torch.Tensor) -> torch.Tensor |
+| Input Shape | [N,3,224,224] |
+| Output Shape | [N,1] |
 
 ## Coding Conventions
 | Rule | Source |
 |---|---|
 | Keep class name CatDogCNN in src/model.py | AGENTS.md |
-| Preserve layer order and tensor shapes | AGENTS.md |
+| Preserve 3 Conv2d→BatchNorm2d→ReLU→MaxPool2d blocks | AGENTS.md |
+| Preserve 2 FC layers + Sigmoid output | AGENTS.md |
 | No external network calls or secrets | AGENTS.md |
 
 ## Test Patterns
-| Test File | Focus | Notes |
-|---|---|---|
-| tests/test_model.py | Layer order, forward output shape | Uses torch.randn input |
+| Pattern | Details |
+|---|---|
+| Layer order checks | tests/test_model.py::test_catdogcnn_has_expected_layers |
+| Output shape checks | tests/test_model.py::test_catdogcnn_forward_returns_predictions |
+| Runner | pytest tests/ |
