@@ -1,27 +1,25 @@
 ## Vision
-Purpose: Classify images as cat vs dog using a CNN model
-Users: ML practitioners evaluating a basic PyTorch CNN
+Purpose: Classify images as cat or dog with a PyTorch CNN
+Users: ML practitioners or learners running local training/inference
 
 ## Target Personas
 | Persona | Pain Point | Goal |
 |---|---|---|
-| ML learner | Needs a simple CNN reference | Understand model architecture and outputs |
-| QA/tester | Needs verifiable model contract | Validate layer order and output shape |
+| ML learner | Needs simple CNN example | Understand binary image classification |
+| Hobbyist engineer | Wants baseline model | Train and evaluate cat vs dog classifier |
 
 ## MVP Scope
 In Scope:
-- CatDogCNN model definition in src/model.py
-- Forward pass producing [N,1] sigmoid scores
-- Pytest validation of layers and output shape
-
+- CNN model definition (CatDogCNN)
+- PyTorch forward pass for [N,3,224,224] inputs
+- Pytest-based model structure checks
 Out of Scope:
-- Training pipeline or dataset handling
-- Inference CLI or API service
-- Hyperparameter tuning or metrics reporting
+- Training pipeline, evaluation CLI, or inference scripts (not in repo)
+- Dataset download automation
 
 ## Strategic Constraints
 | Constraint | Reason |
 |---|---|
-| Keep class name CatDogCNN | AGENTS.md contract |
-| Preserve layer order and counts | Tests enforce architecture |
+| Preserve CatDogCNN layer order/counts | Tests assert exact layer types/order |
 | No external network calls | AGENTS.md restriction |
+| No secrets or API keys | AGENTS.md restriction |
