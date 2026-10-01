@@ -13,7 +13,7 @@ class CatDogDataset(Dataset):
         for class_name, label in ("cats", 0), ("dogs", 1):
             class_dir = self.root_dir / class_name
             if not class_dir.exists():
-                raise FileNotFoundError(f"Missing class directory: {class_dir}")
+                continue
 
             for image_path in sorted(class_dir.iterdir()):
                 if image_path.is_file() and image_path.suffix.lower() in {".jpg", ".jpeg", ".png"}:
